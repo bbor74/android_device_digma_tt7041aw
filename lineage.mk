@@ -1,1 +1,1 @@
-$(call inherit-product, device/explay/fog2/lineage_fog2.mk)
+$(call inherit-product, device/digma/tt7041aw/lineage_tt7041aw.mk)

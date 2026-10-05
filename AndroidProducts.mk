@@ -1,1 +1,1 @@
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/lineage_fog2.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/lineage_tt7041aw.mk

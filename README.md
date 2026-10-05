@@ -1,6 +1,6 @@
-Alwinner A23 LineageOS 14.1 device tree for Explay Fog/Favorite/N1 Plus/M1 Plus
+Alwinner A33 LineageOS 14.1 device tree for DIGMA Opima 7.11 tt7041aw
 
-INET-D70-REV02 board
+INET-D70-REV06 board
 ----------------------------------------------------
 Hardware	: sun8i
 
@@ -16,9 +16,9 @@ Build:
 
 	$ . build/envsetup.sh
 
-	$ breakfast fog2
+	$ breakfast tt7041aw
 
-	$ brunch fog2
+	$ brunch tt7041aw
 
 
 

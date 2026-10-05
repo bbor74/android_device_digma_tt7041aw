@@ -1,5 +1,5 @@
 
-LOCAL_PATH := device/explay/fog2
+LOCAL_PATH := device/digma/tt7041aw
 
 # Bootanimation
 PRODUCT_COPY_FILES +=  \

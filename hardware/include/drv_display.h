@@ -7,7 +7,7 @@
 #include "drv_display_legacy.h"
 #define __LECACY_USED__
 #else
-
+typedef unsigned int u32;
 typedef struct {unsigned char  alpha;unsigned char red;unsigned char green; unsigned char blue; }disp_color_info;
 typedef struct {int x; int y; unsigned int width; unsigned int height;}disp_window;
 typedef struct {unsigned int width;unsigned int height;                   }disp_size;

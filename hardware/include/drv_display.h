@@ -694,6 +694,20 @@ typedef struct
 	unsigned int          fb_height[3];
 }disp_init_para;
 
+typedef struct
+{
+	int                 post2_layers;
+	disp_layer_info     layer_info[8];
+	disp_window         fb_scn_win;
+
+	int                 primary_display_layer_num;
+	int                 show_black[3];
+	int                 time_stamp;
+
+	int                 acquireFenceFd[8];
+	struct sync_fence   *acquireFence[8];
+}setup_dispc_data_t;
+
 typedef enum tag_DISP_CMD
 {
 	//----disp global----

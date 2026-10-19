@@ -1,7 +1,7 @@
 #ifndef __DRV_DISPLAY_H__
 #define __DRV_DISPLAY_H__
 
-#define USE_LEGACY
+//#define USE_LEGACY
 
 #if defined(USE_LEGACY)
 #include "drv_display_legacy.h"

@@ -5,3 +5,6 @@
 allow healthd self:capability2 block_suspend;
 
 permissive healthd;
+
+#============= healthd ==============
+allow healthd device:dir { open read };

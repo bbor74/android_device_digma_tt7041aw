@@ -20,6 +20,11 @@ MALLOC_SVELTE := true
 
 USE_CAMERA_STUB := false
 
+# Charger
+BOARD_NO_CHARGER_LED := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
+TARGET_RECOVERY_DEFAULT_ROTATION := ROTATION_LEFT
+
 # GPS
 # target board doesn't have a gps hardware module, use fakegps
 BOARD_HAVE_FAKE_GPS := true

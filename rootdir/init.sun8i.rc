@@ -18,8 +18,8 @@ on early-fs
 	mount_all /fstab.sun8i
 	swapon_all /fstab.sun8i
 
-	insmod /system/lib/modules/disp.ko
-	insmod /system/lib/modules/lcd.ko
+	#insmod /system/lib/modules/disp.ko
+	#insmod /system/lib/modules/lcd.ko
 	insmod /system/lib/modules/mali.ko
 	
 on post-fs-data

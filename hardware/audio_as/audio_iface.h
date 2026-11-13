@@ -105,7 +105,7 @@ void phone_record_enable(bool enable);
 void phone_record_route(int path);
 
 int phone_record_read_pcm_buf(void* buffer, int bytes);
-
+void clear_phone_route();
 
 #endif
 

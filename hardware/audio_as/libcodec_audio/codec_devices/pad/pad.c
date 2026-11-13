@@ -41,6 +41,7 @@ static void set_headphone_volume(struct mixer_ctl *reg, int volume)
 		}
 	}
 }
+
 static int set_normal_volume(struct codec_client *client, int path, int vol)
 {
 	int headset_on=0, headphone_on=0, speaker_on=0;
@@ -224,8 +225,6 @@ static int set_fm_record(struct codec_client *client, int path)
 	return 0;
 }
 
-
-
 int pad_init(void)
 {
 	ALOGV("****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
@@ -236,9 +235,6 @@ void pad_exit(void)
 {
 	ALOGV("****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
 }
-
-
-
 
 struct normal_ops pad_normal_ops = {
     .set_normal_volume=set_normal_volume,

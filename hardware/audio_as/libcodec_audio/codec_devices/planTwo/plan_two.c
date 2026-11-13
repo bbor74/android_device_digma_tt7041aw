@@ -108,7 +108,6 @@ static int set_normal_path(struct codec_client *client, int path)
 		ALOGV("in normal mode, speaker on,****LINE:%d,FUNC:%s, speaker_on=%d", __LINE__,__FUNCTION__, speaker_on);
 		mixer_ctl_set_enum_by_string(client->mixer_ctls->audio_spk_headset_switch, "spk" );
 	}
-
 	return 0;
 }
 
@@ -125,7 +124,6 @@ static int set_normal_record(struct codec_client *client, int path)
 	ALOGV("normal record mode 4,****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
 	return 0;
 }
-
 
 static int set_fm_volume(struct codec_client *client, int path, int volume)
 {	int speaker_on=0,headset_on=0 ,headphone_on=0;
@@ -174,13 +172,13 @@ static int set_fm_path(struct codec_client *client, int path)
 	mixer_ctl_set_value(client->mixer_ctls->audio_phone_end_call, 0, 1);
 	mixer_ctl_set_value(client->mixer_ctls->audio_linein_in, 0, 1);  
 
-	if (speaker_on){
+	if (speaker_on) {
 		mixer_ctl_set_value(client->mixer_ctls->audio_headphone_out, 0, 0);
 		mixer_ctl_set_value(client->mixer_ctls->audio_speaker_out, 0, 1);
 	} else {
 		mixer_ctl_set_value(client->mixer_ctls->audio_speaker_out, 0, 0);
 		mixer_ctl_set_value(client->mixer_ctls->audio_headphone_out, 0, 1);
-	} 
+	}
 	ALOGV("FM mode 4, devices is %s, ****LINE:%d,FUNC:%s", speaker_on ? "spk" : "headset",__LINE__,__FUNCTION__);
 
 	return 0;
@@ -204,8 +202,6 @@ static int set_fm_record(struct codec_client *client, int path)
 
 	return 0;
 }
-
-
 
 static int set_factory_volume(struct codec_client *client, int path, int vol)
 {
@@ -427,7 +423,7 @@ int plan_two_init(void)
 
 	ret = property_get("audio.without.earpiece", prop_value, "0");
 	if (ret > 0)
-	{		
+	{
 		if (atoi(prop_value) == 1)
 		{
 			no_earpiece = 1;
@@ -447,9 +443,6 @@ void plan_two_exit(void)
 	plan_two_exit_voice();
 	ALOGV("****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
 }
-
-
-
 
 struct normal_ops plan_two_normal_ops = {
     .set_normal_volume=set_normal_volume,

@@ -10,10 +10,8 @@
 
 #include <system/audio.h>
 
-
 #include "hal_codec.h"
 #include "plan_one.h"
-
 
 static int no_earpiece = 0;
 static bool last_path_is_bt = false ;
@@ -45,6 +43,7 @@ static void set_headphone_volume(struct mixer_ctl *reg, int volume)
 		}
 	}
 }
+
 static int set_normal_volume(struct codec_client *client, int path, int vol)
 {
 	int headset_on=0, headphone_on=0, speaker_on=0;
@@ -124,7 +123,6 @@ static int set_normal_record(struct codec_client *client, int path)
 	ALOGV("normal record mode 4,****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
 	return 0;
 }
-
 
 static int set_fm_volume(struct codec_client *client, int path, int volume)
 {
@@ -238,8 +236,6 @@ static int set_fm_record(struct codec_client *client, int path)
 	return 0;
 }
 
-
-
 static int set_factory_volume(struct codec_client *client, int path, int vol)
 {
 	ALOGV("****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
@@ -283,8 +279,6 @@ static int set_factory_path(struct codec_client *client, int path)
 	ALOGV("****LINE:%d,FUNC:%s",__LINE__,__FUNCTION__);
 	return 0;
 }
-
-
 
 static int set_phone_volume(struct codec_client *client, int path, int volume)
 {
@@ -379,7 +373,6 @@ static int set_phone_path(struct codec_client *client, int path)
 	if(mixer_ctl_get_value(client->mixer_ctls->audio_linein_in,0)){
 		mixer_ctl_set_value(client->mixer_ctls->audio_linein_in, 0, 0); //turn off fm
 	}
-
 
 	if (bt_on){
 		mixer_ctl_set_value(client->mixer_ctls->audio_phone_in, 0,0);
@@ -476,7 +469,6 @@ static int set_phone_path(struct codec_client *client, int path)
 #endif
 	return 0;
 }
-
 
 static int set_phone_record_enable(struct codec_client *client, bool enable)
 {

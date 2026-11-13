@@ -257,8 +257,6 @@ int plan_one_stop_bt_record(void)
 	return 0;
 }
 
-
-
 int plan_one_init_voice(void)
 {
 	int ret=-1;
@@ -276,7 +274,7 @@ int plan_one_init_voice(void)
 	//pcm
 	g_bt_send_stream.type = BT;
 	g_bt_send_stream.direction = SENDER; //RECEIVER;
-	g_bt_send_stream.config= bt_pcm_in_config; 
+	g_bt_send_stream.config= bt_pcm_in_config;
 
 	g_bt_receive_stream.type = BT;
 	g_bt_receive_stream.direction = RECEIVER;
@@ -291,12 +289,11 @@ int plan_one_init_voice(void)
 	g_codec_receive_stream.direction = RECEIVER;
 	g_codec_receive_stream.config= codec_out_config; 
 
-
 	//upload voice, and download voice
 	g_upload_voice.stream_sender= &g_bt_send_stream ;
 	g_upload_voice.stream_receiver= &g_codec_receive_stream ;
 	g_upload_voice.voice_direction = UPSTREAM;
-                       
+
 	g_download_voice.stream_sender= &g_codec_send_stream;
 	g_download_voice.stream_receiver= &g_bt_receive_stream;
 	g_download_voice.voice_direction = DOWNSTREAM;
@@ -333,11 +330,10 @@ void plan_one_exit_voice(void)
 
 	sem_destroy(&g_download_voice.sem);
 	sem_destroy(&g_upload_voice.sem);
-	
+
 	memset(&g_upload_voice, 0, sizeof(struct stream_transfer));
 	memset(&g_download_voice, 0, sizeof(struct stream_transfer));
 }
-
 
 static void *manage_voice_thread(void *param)
 {
@@ -446,7 +442,7 @@ static int stream_transfer(struct stream_transfer *stream_transfer)
 
 		if ( (!stream_transfer->voice_thread_run_flag) ){
 			ALOGE(" exit bt , ****LINE:%d,FUNC:%s,svoice_direction=%d",__LINE__,__FUNCTION__, stream_transfer->voice_direction);
-			break;	
+			break;
 		}
 
 		if (stream_transfer->record_flag == 1){
@@ -478,7 +474,6 @@ static int stream_transfer(struct stream_transfer *stream_transfer)
 				}
 				else
 				{
-
 					for(i=0;i<size_transfer/2;i++,Drcptr++)
 					{
 						*Drcptr = ((int)*Drcptr + (int)(*Srcptr++))/2;
@@ -490,8 +485,6 @@ static int stream_transfer(struct stream_transfer *stream_transfer)
 			}	
 		        sem_post(&g_sem_record);
 		}
-
-		
 
 		//ALOGD("pcm running ... , type=%d ",stream_sender->type);
 		if ( (!stream_transfer->voice_thread_run_flag) ){

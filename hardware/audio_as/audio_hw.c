@@ -1552,7 +1552,7 @@ static int start_input_stream(struct sunxi_stream_in *in)
                                         AUDIO_FORMAT_PCM_16_BIT,
                                         in->config.channels,
                                         in->requested_rate);
-
+#if 0
 	int in_ajust_rate = in->requested_rate;
 	// out/in stream should be both 44.1K serial
 #ifdef USERECORD_44100_SAMPLERATE
@@ -1575,6 +1575,7 @@ static int start_input_stream(struct sunxi_stream_in *in)
 #endif
 ALOGV("in_ajust_rate:%d", in_ajust_rate);
 	//in->pcm = pcm_open_req(0, PORT_CODEC, PCM_IN, &in->config, in_ajust_rate);
+#endif
 	in->pcm = pcm_open(0, PORT_CODEC, PCM_IN, &in->config);
 
     if (!pcm_is_ready(in->pcm)) {

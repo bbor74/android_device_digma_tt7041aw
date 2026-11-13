@@ -11,7 +11,6 @@
 
 #include "audio_iface.h"
 
-
 static struct codec_client* codec_client;
 
 int codec_dev_init()
@@ -89,12 +88,11 @@ void fm_play_enable(bool enable){
 
 void fm_play_route(int path)
 {
-   int ret = 0; 
+   int ret = 0;
    if ((codec_client != NULL) && (codec_client->fm_ops != NULL)){
 	ret = codec_client->fm_ops->set_fm_path(codec_client,path);
    }
 }
-
 
 void fm_record_enable(bool enable)
 {
@@ -111,7 +109,6 @@ void fm_record_route(int path)
 	ret = codec_client->fm_ops->set_fm_record(codec_client,path);
    }
 }
-
 
 void fm_volume(int path,int volume)
 {
@@ -131,7 +128,6 @@ void factory_route(int path){
 	ret = codec_client->factory_ops->set_factory_path(codec_client,path);
    }
 }
-
 
 //Ringtone 
 void ringtone_enable(bool enable){
@@ -184,7 +180,6 @@ int phone_record_read_pcm_buf(void* buffer, int bytes)
    return ret;
 }
 
-
 void phone_volume(int path, int volume)
 {
    int ret = 0; 
@@ -192,9 +187,6 @@ void phone_volume(int path, int volume)
 	ret = codec_client->phone_ops->set_phone_volume(codec_client,path,volume);
    }
 }
-
-
-
 
 /****************************************/
 static struct bp_client* bp_client;
@@ -220,14 +212,13 @@ void ril_set_call_at(char *at)
    }
 }
 
-
 int ril_dev_init()
 {
    bp_client= bp_client_new();
 
    if (bp_client == NULL)
 	return -1;
-	
+
   return 0;
 }
 
